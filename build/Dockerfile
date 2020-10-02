@@ -10,8 +10,12 @@ RUN apt-get update && apt-get upgrade -y && \
 
 # Prepare config for usage with mounted volume and fix permissions
 RUN cp -a /etc/asterisk /etc/asterisk-skel && \
+        mkdir -p /etc/asterisk-flrn && \
         mkdir -p /var/run/asterisk && \
         chown asterisk.asterisk /var/run/asterisk
+
+# Add my own config templates
+COPY etc/* /etc/asterisk-flrn/
 
 # Install supervisord config and launch script
 COPY supervised-asterisk.conf /etc/supervisor/conf.d/supervised-asterisk.conf

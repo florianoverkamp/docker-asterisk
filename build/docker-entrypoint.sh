@@ -4,6 +4,7 @@ set -e
 # Asterisk configuration files live in /etc/asterisk but a clean post-install config has been copied to /etc/asterisk-skel
 # Initialize the asterisk configuration volume if nessecary
 if [[ ! -f "/etc/asterisk/asterisk.conf" ]]; then
+  cp -an /etc/asterisk-flrn/* /etc/asterisk
   cp -an /etc/asterisk-skel/* /etc/asterisk
 fi
 
