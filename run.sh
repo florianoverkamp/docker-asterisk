@@ -6,7 +6,7 @@ docker rm asterisk
 docker build -t asterisk .
 docker run -d --rm --name=asterisk \
   -p 5060:5060 \
-  -v /home/florian/docker/asterisk/config:/etc/asterisk \
+  -v ~/docker/docker-asterisk/config:/etc/asterisk \
   asterisk
 docker exec -it asterisk /bin/bash
 
