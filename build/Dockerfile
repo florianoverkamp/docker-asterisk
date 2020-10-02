@@ -5,6 +5,7 @@ LABEL maintainer="Florian Overkamp <f.overkamp@speakup.nl>"
 RUN apt-get update && apt-get upgrade -y && \
         apt-get install -y supervisor asterisk fail2ban && \
         apt-get install -y procps && \
+        apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
 # Prepare config for usage with mounted volume and fix permissions
